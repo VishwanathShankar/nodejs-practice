@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-practice",
+  "version": "1.0.0",
+  "description": "This is a test project for node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishwanathShankar/nodejs-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VishwanathShankar/nodejs-practice/issues"
+  },
+  "homepage": "https://github.com/VishwanathShankar/nodejs-practice#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "express": "^4.17.1"
+  }
+}
