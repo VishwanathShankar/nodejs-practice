@@ -10,6 +10,7 @@ const router = express.Router();
 
 // registering of all the routes
 router.get('/cityList', cityController.getCityList);
+router.post('/cityList', cityController.postCityList);
 router.get('/getRestaurantsbycity', restaurantController.getRestaurantByCity);
 router.get('/mealtype', mealTypeController.getMealType);
 router.get('/getResById/:resId', restaurantController.getRestaurantById);

@@ -4,3 +4,8 @@ const City = require('../Models/City.json');  // importing the City JSON data
 exports.getCityList = (req, res) => {
     res.status(200).json({ message: "City Fetched Sucessfully", city: City })
 }
+
+exports.postCityList = (req, res) => {
+    //console.log(req.body);
+    res.status(200).json({ message: "City data received Sucessfully", city: req.body })
+}
