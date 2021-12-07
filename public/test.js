@@ -1,1 +1,1 @@
-alert("hi")
+console.log("From test.js");
