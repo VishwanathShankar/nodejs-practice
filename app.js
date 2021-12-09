@@ -17,6 +17,15 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 })
+var fullUrl = '';
+
+var myLogger = function (req, res, next) {
+    fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    console.log(fullUrl);
+    next()
+}
+
+app.use(myLogger);
 
 app.use('/api', resRoutes);  // registering the routes
 
