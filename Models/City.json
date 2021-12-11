@@ -4,7 +4,8 @@
         "name": "ShalimarBhagh, Delhi",
         "city_id": "1",
         "location_id": "1",
-        "country_name": "India"
+        "country_name": "India",
+        "pin_code": "560089"
     },
     {
         "_id": "5ef36ad855d50a33782474bf",
