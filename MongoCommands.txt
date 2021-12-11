@@ -1,0 +1,3 @@
+ use classdatabase
+ db.movie.insert({"title": "EndGame"})
+ db.movie.insertMany( [{"title":"Ghajini","hero":"surya","year":2000,"director":"mani ratnam"},{"title":"Adheera","hero":"Shahru khan","year":2001,"director":"mani ratnam"},{"title":"Singham","hero":"Ajay Devgan","year":2007,"director":"SS Rajmouli"},{"title":"Bahubali","hero":"Prabhas","year":2017,"director":"SS Rajmouli"} ] );
