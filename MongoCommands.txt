@@ -6,3 +6,5 @@
  db.movie.find({"hero": "surya"}).pretty()
  db.movie.find({"hero": "Prabhas"}).pretty()
  db.movie.find({"director": "SS Rajmouli"}).pretty()
+ db.movie.update({"title" : "Singham"}, {$set: {"director": "Rohit Shetty"}})
+ db.movie.remove({"title" : "Singham"})
