@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "22f5fbe4-7f99-464a-bf6c-5e257ab03620",
+		"name": "RestaurantAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cityList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "vishwanath",
+						"value": "age",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authenticated\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6503/api/cityList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6503",
+					"path": [
+						"api",
+						"cityList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post cityList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dominos\",\r\n    \"city_id\": 1,\r\n    \"location_id\": 1,\r\n    \"country_name\": \"India\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6503/api/addcityList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6503",
+					"path": [
+						"api",
+						"addcityList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRestaurantsbycity",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\" : \"Delhi\",\r\n    \"pinCode\": 560087\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6504/api/getRestaurantsbycity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6504",
+					"path": [
+						"api",
+						"getRestaurantsbycity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6504/api/getResById/5efb3f988f93dc4593e2ba61?name=\"Dominos\"&food=\"Veg\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6504",
+					"path": [
+						"api",
+						"getResById",
+						"5efb3f988f93dc4593e2ba61"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "\"Dominos\""
+						},
+						{
+							"key": "food",
+							"value": "\"Veg\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
