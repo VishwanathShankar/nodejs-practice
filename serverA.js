@@ -6,8 +6,10 @@ var people = {
 }
 
 app.use('/', express.static('public'));
+/*
 app.get('/people', (req, res) => {
     res.send(people);
   });
-  
+  */
+ 
 app.listen(3000);
