@@ -19,31 +19,31 @@ use classdatabase
 ]);
 
 SELECT * FROM inventory WHERE status = "D"
-db.inventory.find( { status: "D" } )
+db.inventory.find( { status: "D" } ).pretty()
 
 SELECT * FROM inventory WHERE status in ("A", "D")
-db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+db.inventory.find( { status: { $in: [ "A", "D" ] } } ).pretty()
 
 SELECT * FROM inventory WHERE status = "A" AND qty < 30
-db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+db.inventory.find( { status: "A", qty: { $lt: 30 } } ).pretty()
 
 SELECT * FROM inventory WHERE status = "A" OR qty < 30
-db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } ).pretty()
 
 SELECT * FROM inventory WHERE status = "A" AND ( qty < 30 OR item LIKE "p%")
 
 db.inventory.find( {
      status: "A",
      $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
-} )
+} ).pretty()
 
 
 Querrying on Nested Objects
-db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
+db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } ).pretty()
 
-db.inventory.find( { "size.uom": "in" } )
+db.inventory.find( { "size.uom": "in" } ).pretty()
 
-db.inventory.find( { "size.h": { $lt: 15 } } )
+db.inventory.find( { "size.h": { $lt: 15 } } ).pretty()
 
-db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } )
+db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } ).pretty()
 
