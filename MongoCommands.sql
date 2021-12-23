@@ -50,3 +50,20 @@ db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } ).pr
 Projections:
 
 db.movie.find( { }, { "title": 1, "director": 1, "year": 1 } );
+
+Aggregations:
+
+db.movies.aggregate( [
+   { $unwind: "$genres" },
+   {
+     $group: {
+       _id: "$genres",
+       genreCount: { $count: { } }
+     }
+   },
+   { $sort: { "genreCount": -1 } }
+] )
+
+db.movies.aggregate( [
+{ $unwind: "$genres" }
+])
