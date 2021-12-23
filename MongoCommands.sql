@@ -47,3 +47,6 @@ db.inventory.find( { "size.h": { $lt: 15 } } ).pretty()
 
 db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } ).pretty()
 
+Projections:
+
+db.movie.find( { }, { "title": 1, "director": 1, "year": 1 } );
