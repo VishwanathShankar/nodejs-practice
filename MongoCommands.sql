@@ -66,6 +66,9 @@ db.movie.find( { "director": "mani ratnam"} , { "hero": 1, "_id": 0} );
 
 
 Aggregations:
+Query: I want the count of movies according to genres?
+drama: 3
+romance: 1
 
 db.movies.aggregate( [
    { $unwind: "$genres" },
@@ -78,6 +81,22 @@ db.movies.aggregate( [
    { $sort: { "genreCount": -1 } }
 ] )
 
+
+Get the count of movies released accrding to the year
+db.movies.aggregate( [
+   { $unwind: "$genres" },
+   {
+     $group: {
+       _id: "$year",
+       filmCount: { $count: { } }
+     }
+   },
+   { $sort: { "filmCount": -1 } }
+] )
+
+
+
+Query: I want the list of films in which genres is drama?
 db.movies.aggregate( [
 { $unwind: "$genres" }
 ])
