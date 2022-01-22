@@ -7,9 +7,6 @@
 	"item": [
 		{
 			"name": "cityList",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -20,15 +17,6 @@
 						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"authenticated\" : false\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:6503/api/cityList",
 					"protocol": "http",
@@ -45,7 +33,43 @@
 			"response": []
 		},
 		{
-			"name": "Post cityList",
+			"name": "Post Mealtype",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"_id\": \"5ef36f6de09c58422cbf3340\",\r\n        \"name\": \"NightLife\",\r\n        \"content\": \"Start your day with exclusive breakfast options\",\r\n        \"image\": \"assets/nightlife.png\",\r\n        \"meal_type\": 6,\r\n        \"__v\": 0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6503/api/addmealtype",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6503",
+					"path": [
+						"api",
+						"addmealtype"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "kfc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post cityList Copy",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -68,6 +92,13 @@
 					"path": [
 						"api",
 						"addcityList"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "kfc",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -83,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"city\" : \"Delhi\",\r\n    \"pinCode\": 560087\r\n}",
+					"raw": "{\r\n    \"city\" : \"Bangalore\",\r\n    \"location\": \"Sarjapur Road\",\r\n    \"cusine\": \"North Indian\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +122,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:6504/api/getRestaurantsbycity",
+					"raw": "http://localhost:6504/api/getRestaurants",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -99,7 +130,14 @@
 					"port": "6504",
 					"path": [
 						"api",
-						"getRestaurantsbycity"
+						"getRestaurants"
+					],
+					"query": [
+						{
+							"key": "cityId",
+							"value": "bangalore",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -111,7 +149,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:6504/api/getResById/5efb3f988f93dc4593e2ba61?name=\"Dominos\"&food=\"Veg\"",
+					"raw": "http://localhost:6504/api/getResById/5efb3f988f93dc4593e2ba61",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -121,16 +159,6 @@
 						"api",
 						"getResById",
 						"5efb3f988f93dc4593e2ba61"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "\"Dominos\""
-						},
-						{
-							"key": "food",
-							"value": "\"Veg\""
-						}
 					]
 				}
 			},
@@ -140,10 +168,98 @@
 			"name": "New Request",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "Public API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts/",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Public API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cat-fact.herokuapp.com/facts/",
+							"protocol": "https",
+							"host": [
+								"cat-fact",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"facts",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1675"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"68b-25VLvc9X+ykqz7RP7OPGT3PIXAw\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AuRXfoE5hCsdsE6BAG12cFOcc6ooxQTMm.rzmoq1uEiCMWOI7PsV8ZJ2xXHIVQXoLs82PKg3WKVU0; Path=/; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Jan 2022 10:16:41 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"status\": {\n            \"verified\": true,\n            \"feedback\": \"\",\n            \"sentCount\": 1\n        },\n        \"_id\": \"5887e1d85c873e0011036889\",\n        \"user\": \"5a9ac18c7478810ea6c06381\",\n        \"text\": \"Cats make about 100 different sounds. Dogs make only about 10.\",\n        \"__v\": 0,\n        \"source\": \"user\",\n        \"updatedAt\": \"2020-09-03T16:39:39.578Z\",\n        \"type\": \"cat\",\n        \"createdAt\": \"2018-01-15T21:20:00.003Z\",\n        \"deleted\": false,\n        \"used\": true\n    },\n    {\n        \"status\": {\n            \"verified\": true,\n            \"sentCount\": 1\n        },\n        \"_id\": \"588e746706ac2b00110e59ff\",\n        \"user\": \"588e6e8806ac2b00110e59c3\",\n        \"text\": \"Domestic cats spend about 70 percent of the day sleeping and 15 percent of the day grooming.\",\n        \"__v\": 0,\n        \"source\": \"user\",\n        \"updatedAt\": \"2020-08-26T20:20:02.359Z\",\n        \"type\": \"cat\",\n        \"createdAt\": \"2018-01-14T21:20:02.750Z\",\n        \"deleted\": false,\n        \"used\": true\n    },\n    {\n        \"status\": {\n            \"verified\": true,\n            \"sentCount\": 1\n        },\n        \"_id\": \"58923f2fc3878c0011784c79\",\n        \"user\": \"5887e9f65c873e001103688d\",\n        \"text\": \"I don't know anything about cats.\",\n        \"__v\": 0,\n        \"source\": \"user\",\n        \"updatedAt\": \"2020-08-23T20:20:01.611Z\",\n        \"type\": \"cat\",\n        \"createdAt\": \"2018-02-25T21:20:03.060Z\",\n        \"deleted\": false,\n        \"used\": false\n    },\n    {\n        \"status\": {\n            \"verified\": true,\n            \"sentCount\": 1\n        },\n        \"_id\": \"5894af975cdc7400113ef7f9\",\n        \"user\": \"5a9ac18c7478810ea6c06381\",\n        \"text\": \"The technical term for a cat’s hairball is a bezoar.\",\n        \"__v\": 0,\n        \"source\": \"user\",\n        \"updatedAt\": \"2020-11-25T21:20:03.895Z\",\n        \"type\": \"cat\",\n        \"createdAt\": \"2018-02-27T21:20:02.854Z\",\n        \"deleted\": false,\n        \"used\": true\n    },\n    {\n        \"status\": {\n            \"verified\": true,\n            \"sentCount\": 1\n        },\n        \"_id\": \"58e007cc0aac31001185ecf5\",\n        \"user\": \"58e007480aac31001185ecef\",\n        \"text\": \"Cats are the most popular pet in the United States: There are 88 million pet cats and 74 million dogs.\",\n        \"__v\": 0,\n        \"source\": \"user\",\n        \"updatedAt\": \"2020-08-23T20:20:01.611Z\",\n        \"type\": \"cat\",\n        \"createdAt\": \"2018-03-01T21:20:02.713Z\",\n        \"deleted\": false,\n        \"used\": false\n    }\n]"
+				}
+			]
 		}
 	]
 }
