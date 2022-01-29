@@ -82,6 +82,8 @@ exports.filterSearch = (req, res, next) => {
 // getRestaurantByCity function to get restaurants by city name
 exports.getRestaurantByCity = (req, res) => {
     const cityId = req.params.cityId;
+    console.log("What is city Id "+cityId);
+    console.log("Type is "+typeof(cityId));
     Restaurant.find({ location_id: cityId }).then(result => {
         res.status(200).json({ message: "Restaurant Fetched Sucessfully", restaurantList: result })
     }).catch(err => console.log(err));
@@ -106,9 +108,7 @@ exports.getRestaurantById = (req, res, next) => {
 // addRestaurantList function to add restaurants to DB
 exports.addRestaurantList = (req, res, next) => {
     const name = req.body.name;
-    const address = req.body.address;
-    const logo = req.body.logo;
-    const Rest = new Restaurant({ name: name, address: address, logo: logo });
+    const Rest = new Restaurant(req.body);
     Rest.save().then(result => {
         res.status(200).json({ message: "Restaurant Added Sucessfully", restaurant: result })
     }).catch(err => {
