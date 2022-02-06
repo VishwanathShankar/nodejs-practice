@@ -20,6 +20,7 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use('/', express.static('build'));
 // navigating all requests to routes
 app.use('/api', resRoutes);
 

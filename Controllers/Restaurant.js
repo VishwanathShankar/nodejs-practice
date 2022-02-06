@@ -66,6 +66,10 @@ exports.filterSearch = (req, res, next) => {
             min_price: { $gt: lcost, $lt: hcost }
         }
     }
+
+    console.log("Payload query is");
+    console.log(payload);
+    console.log("Sort order is "+sort);
     Restaurant.find(payload).sort({ min_price: sort }).then(result => {
         const count = Math.ceil(result.length / 5);
         const pageCountArr = [];
